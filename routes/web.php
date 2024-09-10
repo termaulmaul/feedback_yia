@@ -5,6 +5,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminDashboardController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ResponsesController;
 
 // Rute utama, arahkan ke halaman utama
 Route::get('/', [FeedbackController::class, 'index'])->name('home');
@@ -20,7 +22,6 @@ Route::post('/submit-feedback', [FeedbackController::class, 'submitFeedback'])->
 
 // Rute untuk halaman admin dengan prefix 'admin'
 Route::prefix('admin')->middleware('auth')->group(function () {
-    Route::get('/', [AdminController::class, 'dashboard'])->name('admin.dashboard');
     Route::get('/questions', [AdminController::class, 'questions'])->name('admin.questions');
     Route::get('/responses', [AdminController::class, 'responses'])->name('admin.responses');
     Route::get('/response-detail/{id}', [AdminController::class, 'detailResponse'])->name('admin.response-detail');

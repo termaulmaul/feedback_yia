@@ -88,23 +88,25 @@
 
         .charts-wrapper {
             display: flex;
-            flex-wrap: wrap;
             justify-content: space-between;
-            gap: 20px;
+            gap: 10px;
+            flex-wrap: wrap;
         }
 
         .chart-container {
-            flex: 1 1 calc(33% - 20px);
+            flex: 1 1 calc(33.333% - 20px); /* Adjusted to fit 3 items per row with gaps */
             box-sizing: border-box;
+            max-width: calc(33.333% - 20px); /* Ensures charts don't exceed container width */
+            margin-bottom: 20px; /* Add some spacing below each chart */
         }
 
         .chart {
             width: 100%;
-            height: 300px;
+            height: 250px; /* Reduced height to fit better */
         }
 
         .chart-title {
-            font-size: 1.2em;
+            font-size: 1em; /* Adjusted font size */
             margin-top: 10px;
             color: #242632;
             text-align: center;
